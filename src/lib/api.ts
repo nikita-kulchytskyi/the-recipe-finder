@@ -1,3 +1,5 @@
+import { RecipeDetails } from "@/types";
+
 const API_KEY = process.env.SPOONACULAR_API_KEY;
 const BASE_URL = process.env.NEXT_PUBLIC_SPOONACULAR_BASE_URL;
 
@@ -30,11 +32,11 @@ export async function fetchRecipes(params: {
   return response.json();
 }
 
-export async function fetchRecipeById(id: string) {
+export async function fetchRecipeById(id: string): Promise<RecipeDetails> {
   const response = await fetch(
-    `${BASE_URL}/recipes/${id}/information?apiKey=${API_KEY}`,
-    { cache: "no-store" }
+    `${BASE_URL}/${id}/information?apiKey=${API_KEY}`
   );
+
   if (!response.ok) {
     throw new Error("Failed to fetch recipe details");
   }
