@@ -8,7 +8,7 @@ export default function RecipeHeader({ recipe }: { recipe: RecipeDetails }) {
       </h1>
       {recipe.image && (
         <img
-          src={recipe.image}
+          src={recipe.image || "/placeholder.png"}
           alt={recipe.title}
           className="w-full max-h-[400px] object-cover rounded-xl shadow-md"
         />

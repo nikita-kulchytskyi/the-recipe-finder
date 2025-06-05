@@ -3,7 +3,7 @@ interface RecipeSummaryProps {
 }
 
 export default function RecipeSummary({ summary }: RecipeSummaryProps) {
-  if (!summary) return null;
+  if (!summary) return <p>This recipe does not come with instructions.</p>;
 
   return (
     <div
